@@ -5,3 +5,147 @@
   Author: Clique Studios
   Author URI: http://cliquestudios.com
 */
+
+#header {
+    display: block;
+    position: relative;
+    z-index: 999999999;
+    width: 100%;
+    float: left;
+    background: #fff;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.top-header {
+    display: block;
+    position: relative;
+    z-index: 999;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+#logo {
+    display: block;
+    float: left;
+    width: 225px;
+    height: 60px;
+    margin-top: 10px;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+#logo a {
+    display: block;
+    width: 225px;
+    height: 60px;
+    text-indent: -9999px;
+    background: url(//authentify.com/wp-content/themes/authentify_childtheme/css/../images/logo.png) center center no-repeat;
+    background-size: 100%;
+    outline: 0 !important;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+#utility {
+    display: block;
+    float: right;
+    width: 380px;
+    margin-top: 15px;
+}
+
+#utility .blue-btn {
+    width: 160px;
+}
+
+.blue-btn {
+    display: block;
+    float: right;
+    width: auto;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #009abe;
+    font-family: 'core_sans_nr_65_boldregular';
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+#utility .phone {
+    float: right;
+    font-size: 24px;
+    line-height: 50px;
+    color: #494546;
+    margin: 0 20px 0 0;
+    font-family: 'core_sans_nr_35_lightregular';
+}
+
+#navigation {
+    display: block;
+    position: relative;
+    z-index: 99999999;
+    float: left;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.desktop-menu {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu li {
+    display: block;
+    float: left;
+    width: auto;
+}
+
+.menu li a {
+    display: block;
+    position: relative;
+    float: left;
+    width: auto;
+    padding: 0 40px;
+    font-size: 18px;
+    line-height: 60px;
+    color: #454142;
+    font-family: 'core_sans_nr_45_regularRg';
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+
+
