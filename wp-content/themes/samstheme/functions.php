@@ -2,6 +2,9 @@
 
 function custom_css_include() 
 {
+
+  if( $GLOBALS['pagenow'] == 'wp-login.php' || is_admin() ) { return false; }
+
   wp_register_style(
     'custom-css', 
     get_stylesheet_directory_uri() . '/style.css', 
@@ -17,6 +20,9 @@ add_action( 'wp_enqueue_scripts', 'custom_css_include' );
 
 function custom_js_include()
 {
+
+  if( $GLOBALS['pagenow'] == 'wp-login.php' || is_admin() ) { return false; }
+  
   wp_register_script( 
     'custom-js', 
     get_stylesheet_directory_uri() . '/custom.js', 
@@ -85,13 +91,13 @@ function partner_custom_post_type()
   register_post_type( 'partners', $args );
 }
 
-function product_custom_post_type()
+function news_custom_post_type()
 {
   $labels = array(
-    'name'                  => _x( 'Products', 'Post Type General Name', 'text_domain' ),
-    'singular_name'         => _x( 'Product', 'Post Type Singular Name', 'text_domain' ),
-    'menu_name'             => __( 'Products', 'text_domain' ),
-    'name_admin_bar'        => __( 'Product', 'text_domain' ),
+    'name'                  => _x( 'News', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'News', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'News', 'text_domain' ),
+    'name_admin_bar'        => __( 'News', 'text_domain' ),
     'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
     'all_items'             => __( 'All Items', 'text_domain' ),
     'add_new_item'          => __( 'Add New Item', 'text_domain' ),
@@ -109,8 +115,8 @@ function product_custom_post_type()
   );
 
   $args = array(
-    'label'                 => __( 'Product', 'text_domain' ),
-    'description'           => __( 'Product Description', 'text_domain' ),
+    'label'                 => __( 'News', 'text_domain' ),
+    'description'           => __( 'News Description', 'text_domain' ),
     'labels'                => $labels,
     'supports'              => array(),
     'taxonomies'            => array( 'category', 'post_tag' ),
@@ -125,67 +131,67 @@ function product_custom_post_type()
     'has_archive'           => true,    
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
-    'menu_icon'             => 'dashicons-cloud',
+    'menu_icon'             => 'dashicons-admin-page',
     'capability_type'       => 'page',
   );
 
-  register_post_type( 'products', $args );
+  register_post_type( 'news', $args );
 }
 
 function register_custom_post_types() 
 {
   partner_custom_post_type();
-  product_custom_post_type();
+  news_custom_post_type();
 }
 
 add_action( 'init', 'register_custom_post_types', 0 );
 
-/*
+
 function myplugin_add_meta_box() 
 {
 
   add_meta_box( 
-    'events-metabox', // id
-    'Event Options', //name that will show up
-    'events_metabox_callback', //function needed
-    'custom-post-type' //what post we want it to show up on
+    'news-metabox', // id
+    'News Options', //name that will show up
+    'news_metabox_callback', //function needed
+    'news' //what post we want it to show up on
 
     );
 
 }
 add_action( 'add_meta_boxes', 'myplugin_add_meta_box' );
 
-function events_metabox_callback($post)
+function news_metabox_callback($post)
 {
   wp_nonce_field( 'myplugin_save_meta_box_data', 'myplugin_meta_box_nonce');
 
   ?>
-    <!-- Start Date Field -->
-    <p><label for="event_start_date">Start Date</label></p>
-    <p><input type="text" name="event_start_date" value="<?php echo get_post_meta($post->ID, 'event_start_date', true); ?>"></p>
+    <!-- Image Field -->
+    <p><label for="news_image">News Image</label></p>
+    <p><input type="text" name="news_image" value="<?php echo get_post_meta($post->ID, 'news_image', true); ?>"></p>
 
-    <!-- End Date Field -->
-    <p><label for="event_end_date">End Date</label></p>
-    <p><input type="text" name="event_end_date" value="<?php echo get_post_meta($post->ID, 'event_end_date', true); ?>"></p>
+    <!-- Date Field -->
+    <p><label for="news_date">Date</label></p>
+    <p><input type="text" name="news_date" value="<?php echo get_post_meta($post->ID, 'news_date', true); ?>"></p>
   <?php
 
 }
 
-function events_save_post_date($post_id)
+function news_save_post_date($post_id)
 {
   if( ! isset( $_POST['myplugin_meta_box_nonce'] ) ) {
     return;
   }
 
-  if( isset( $_POST['event_start_date'] ) ) {
-    update_post_meta( $post_id, 'event_start_date', $_POST['event_start_date'] );
+  if( isset( $_POST['news_image'] ) ) {
+    update_post_meta( $post_id, 'news_image', $_POST['news_image'] );
   }
 
-  if( isset( $_POST['event_end_date'] ) ) {
-    update_post_meta( $post_id, 'event_end_date', $_POST['event_end_date'] );
+  if( isset( $_POST['news_date'] ) ) {
+    update_post_meta( $post_id, 'news_date', $_POST['news_date'] );
   }
 }
-add_action( 'save_post', 'events_save_post_date');
-*/
+add_action( 'save_post', 'news_save_post_date');
+
 
 
