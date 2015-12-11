@@ -11,6 +11,7 @@
       <p><?php echo $newsitem->post_content ?></p>
       <p><?php echo $newsitem->news_date ?></p>
     </div>
+    <hr>
 
 <?php } ?>
 

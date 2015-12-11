@@ -290,4 +290,10 @@
     transition: .3s;
 }
 
+.news {
+    display: block;
+    float: left;
+    width: 80%;
+}
+
 
