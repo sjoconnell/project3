@@ -9,7 +9,6 @@
         
         //globalizes post variables
         the_post();
-        the_title();
         the_content();
         //the_category(',', 'multiple');
       }
