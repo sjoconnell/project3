@@ -38,7 +38,8 @@ add_action( 'wp_enqueue_scripts', 'custom_js_include' );
 function theme_init () 
 {
   register_nav_menus( array(
-    'nav-menu' => 'Nav Menu'
+    'nav-menu' => 'Nav Menu',
+    'partner-menu' => 'Partner Menu'
     ));
 }
 add_action( 'init', 'theme_init');

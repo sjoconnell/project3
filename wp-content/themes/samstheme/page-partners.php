@@ -1,20 +1,14 @@
 <?php /* Template Name: Partners */ get_header(); ?>
 
-
-  <div class="partners">
+<div id="partner-body">
   <?php
-    // checks to see that a post exists
-    if( have_posts() ) {
-      while ( have_posts() ) {
-        
-        //globalizes post variables
-        the_post();
-        the_title();
-        the_content();
-        //the_category(',', 'multiple');
-      }
-    }
+
+    wp_nav_menu(array(
+        'theme_location' => 'partner-menu'
+      ));
+         
   ?>
-  </div>
+</div>
+
 
 <?php get_footer(); ?>
